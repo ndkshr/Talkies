@@ -12,7 +12,9 @@ An app for the movie buffs
 
 ## Project Installation
 - [ ] Clone the repo from Github.
+- [ ] Copy the contents in `gradle.properties.dist` and make a `gradle.properties`
 - [ ] Register in TMdb for your own API key to get the proper response
+- [ ] Replace the API key in the gradle.properties file 
 - [ ] Run the app on Android Studio
 
 ## Libraries and Tools used
