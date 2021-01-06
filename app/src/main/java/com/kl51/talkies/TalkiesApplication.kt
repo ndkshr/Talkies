@@ -12,6 +12,10 @@ import javax.inject.Inject
 
 open class TalkiesApplication : Application(), HasActivityInjector {
 
+    companion object {
+        const val BASE_URL = "https://api.themoviedb.org"
+    }
+
     @Inject
     lateinit var activityInjector: DispatchingAndroidInjector<Activity>
 
@@ -28,7 +32,7 @@ open class TalkiesApplication : Application(), HasActivityInjector {
         if (!this::applicationComponent.isInitialized) {
             applicationComponent = DaggerAppComponent.builder()
                 .application(this)
-                .baseUrl("https://api.apixu.com")
+                .baseUrl(BASE_URL)
                 .build()
         }
         return applicationComponent
