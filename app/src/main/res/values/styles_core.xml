@@ -2,13 +2,20 @@
 <resources>
     <!--  Basic Style classes  -->
     <style name="Theme.Talkies.Text" />
+
     <style name="Theme.Talkies.Button" />
+
     <style name="Theme.Talkies.BottomSheet" />
+
     <style name="Theme.Talkies.Toolbar" />
 
     <!--  Text Styles  -->
     <style name="Theme.Talkies.Text.Title">
-        <item name="android:textSize">@dimen/dimen_30</item>
+        <item name="android:textSize">@dimen/font_30</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.Talkies.Text.Heading">
+        <item name="android:textSize">@dimen/font_12</item>
     </style>
 </resources>

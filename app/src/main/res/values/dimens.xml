@@ -4,4 +4,7 @@
     <dimen name="dimen_10">10dp</dimen>
     <dimen name="dimen_20">20dp</dimen>
     <dimen name="dimen_30">30dp</dimen>
+
+    <dimen name="poster_width_200">200dp</dimen>
+    <dimen name="poster_width_300">300dp</dimen>
 </resources>

@@ -76,7 +76,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showUpcomingMovies(results: List<Movie>) {
-        Toast.makeText(this, "API call success : count - " + results.size, Toast.LENGTH_SHORT).show()
         adapter.setData(results, secureBaseUrl)
     }
 
