@@ -7,4 +7,8 @@
     <style name="Theme.Talkies.Toolbar" />
 
     <!--  Text Styles  -->
+    <style name="Theme.Talkies.Text.Title">
+        <item name="android:textSize">@dimen/dimen_30</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>
