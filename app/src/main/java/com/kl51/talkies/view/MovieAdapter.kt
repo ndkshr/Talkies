@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kl51.talkies.databinding.CardMovieBinding
 import com.kl51.talkies.model.Movie
 
-class MovieAdapter: RecyclerView.Adapter<MovieViewHolder>() {
+class MovieAdapter constructor(
+    private val onCardClick: (String, String) -> (Unit)
+): RecyclerView.Adapter<MovieViewHolder>() {
 
     private var moviesList =  ArrayList<Movie>()
     lateinit var secureBaseUrl: String
@@ -23,7 +25,8 @@ class MovieAdapter: RecyclerView.Adapter<MovieViewHolder>() {
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            )
+            ),
+            onCardClicked = onCardClick
         )
     }
 

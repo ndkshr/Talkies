@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        adapter = MovieAdapter()
+        adapter = MovieAdapter(::onCardClick)
         binding.rvMovie.adapter = adapter
         binding.rvMovie.layoutManager = GridLayoutManager(this, 2)
     }
@@ -77,6 +77,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun showUpcomingMovies(results: List<Movie>) {
         adapter.setData(results, secureBaseUrl)
+    }
+
+    private fun onCardClick(title: String, description: String) {
+        MoviePreviewBottomSheet.getInstance(title, description).show(supportFragmentManager, MoviePreviewBottomSheet.TAG)
     }
 
     private fun showError() {

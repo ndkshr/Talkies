@@ -15,7 +15,17 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="Theme.Talkies.Text.Title1">
+        <item name="android:textSize">@dimen/font_20</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="Theme.Talkies.Text.Heading">
         <item name="android:textSize">@dimen/font_12</item>
+    </style>
+
+    <!--  Button Styles  -->
+    <style name="Theme.Talkies.Button.Solid">
+        <item name="cornerRadius">@dimen/dimen_5</item>
     </style>
 </resources>
