@@ -13,7 +13,7 @@ import javax.inject.Inject
 open class TalkiesApplication : Application(), HasActivityInjector {
 
     companion object {
-        const val BASE_URL = "https://api.themoviedb.org"
+        const val BASE_URL = "https://api.themoviedb.org/3/"
     }
 
     @Inject

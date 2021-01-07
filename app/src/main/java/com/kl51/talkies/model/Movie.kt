@@ -3,16 +3,28 @@ package com.kl51.talkies.model
 import com.google.gson.annotations.SerializedName
 
 data class Movie(
-    @SerializedName("id")
-    val movieId: Int,
-    @SerializedName("title")
-    val movieName: String,
-    val moviePosterUrl: String,
-    val movieRating: String,
-    val movieGenre: List<Genre>
-)
-
-data class Genre (
-    val id: Int,
-    val name: String
+        @SerializedName("adult")
+        val adult: Boolean,
+        @SerializedName("backdrop_path")
+        val backdropPath: String,
+        @SerializedName("genre_ids")
+        val genreIds: List<Int>,
+        @SerializedName("id")
+        val id: Int,
+        @SerializedName("original_language")
+        val originalLanguage: String,
+        @SerializedName("original_title")
+        val originalTitle: String,
+        @SerializedName("overview")
+        val overview: String,
+        @SerializedName("popularity")
+        val popularity: Float,
+        @SerializedName("poster_path")
+        val posterPath: String,
+        @SerializedName("title")
+        val title: String,
+        @SerializedName("vote_average")
+        val voteAverage: Float,
+        @SerializedName("vote_count")
+        val voteCount: Int
 )
