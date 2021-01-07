@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Basic Style classes  -->
+    <style name="Theme.Talkies.Text" />
+    <style name="Theme.Talkies.Button" />
+    <style name="Theme.Talkies.BottomSheet" />
+    <style name="Theme.Talkies.Toolbar" />
+
+    <!--  Text Styles  -->
+</resources>
