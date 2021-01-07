@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kl51.talkies.R
 import com.kl51.talkies.databinding.ActivityMainBinding
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     private fun initRecyclerView() {
         adapter = MovieAdapter()
         binding.rvMovie.adapter = adapter
-        binding.rvMovie.layoutManager = LinearLayoutManager(this)
+        binding.rvMovie.layoutManager = GridLayoutManager(this, 2)
     }
 
     private fun getMoviesFromRemote() {

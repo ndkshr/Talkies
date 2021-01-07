@@ -1,17 +1,24 @@
 package com.kl51.talkies.view
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import com.kl51.talkies.R
 import com.kl51.talkies.databinding.CardMovieBinding
 import com.kl51.talkies.model.Movie
+import com.kl51.talkies.utils.GlideApp
 
-class MovieViewHolder(private val binding: CardMovieBinding) : RecyclerView.ViewHolder(binding.root) {
+class MovieViewHolder(private val binding: CardMovieBinding) :
+    RecyclerView.ViewHolder(binding.root) {
+
+    companion object {
+        const val IMAGE_MEDIUM = "w185"
+    }
 
     fun bind(movie: Movie, secureBaseUrl: String) {
         binding.movieTitle.text = movie.originalTitle
-        Glide.with(binding.root.context)
-                .load(secureBaseUrl + movie.posterPath)
-                .into(binding.moviePoster)
+        val imageUrl = secureBaseUrl + IMAGE_MEDIUM + movie.posterPath
+        GlideApp.with(binding.root.context)
+            .load(imageUrl)
+            .placeholder(R.mipmap.ic_placeholder)
+            .into(binding.moviePoster)
     }
 }
