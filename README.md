@@ -25,3 +25,7 @@ An app for the movie buffs
 - [ ] MVVM Architecture and Repository pattern
 
 PS: Feel free to clone, hack and contribute on this project, and make this a better app. Thanks ;)
+
+# Contributors
+1. Nandakishor
+2. Sreehari
