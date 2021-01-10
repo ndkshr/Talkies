@@ -1,9 +1,11 @@
 package com.kl51.talkies.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.kl51.talkies.R
@@ -28,16 +30,22 @@ class MoviePreviewBottomSheet : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.movieTitle.text = arguments?.get(BUNDLE_TITLE).toString()
         binding.movieDescription.text = arguments?.get(BUNDLE_DESCRIPTION).toString()
+        binding.buttonViewMovie.setOnClickListener {
+            MovieDetailsActivity.start(activity, arguments?.get(BUNDLE_ID).toString())
+            Toast.makeText(activity, arguments?.get(BUNDLE_ID).toString(), Toast.LENGTH_SHORT).show()
+        }
     }
 
     companion object {
-        const val BUNDLE_TITLE = "title"
-        const val BUNDLE_DESCRIPTION = "description"
+        private const val BUNDLE_ID = "id"
+        private const val BUNDLE_TITLE = "title"
+        private const val BUNDLE_DESCRIPTION = "description"
         const val TAG = "Movie Preview Bottom Sheet Fragment"
 
-        fun getInstance(movieTitle: String, movieDescription: String) =
+        fun getInstance(movieId: Int, movieTitle: String, movieDescription: String) =
             MoviePreviewBottomSheet().apply {
                 arguments = Bundle().apply {
+                    putInt(BUNDLE_ID, movieId)
                     putString(BUNDLE_TITLE, movieTitle)
                     putString(BUNDLE_DESCRIPTION, movieDescription)
                 }
