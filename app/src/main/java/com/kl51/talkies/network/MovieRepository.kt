@@ -5,13 +5,17 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class MovieRepository @Inject constructor(
-        private val movieApi: MovieApi
+    private val movieApi: MovieApi
 ) {
     fun getUpcomingMovies() = movieApi.getUpcomingMovies()
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribeOn(Schedulers.io())
 
     fun getConfiguration() = movieApi.getConfiguration()
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribeOn(Schedulers.io())
+
+    fun getMovieDetails(movieId: String) = movieApi.getMovieDetails(movieId = movieId)
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribeOn(Schedulers.io())
 }
