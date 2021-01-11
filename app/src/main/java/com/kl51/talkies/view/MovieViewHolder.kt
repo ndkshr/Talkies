@@ -8,7 +8,7 @@ import com.kl51.talkies.utils.GlideApp
 
 class MovieViewHolder(
     private val binding: CardMovieBinding,
-    private val onCardClicked: (String, String) -> (Unit)
+    private val onCardClicked: (Int, String, String) -> (Unit)
 ) :
     RecyclerView.ViewHolder(binding.root) {
 
@@ -26,7 +26,7 @@ class MovieViewHolder(
             .into(binding.moviePoster)
 
         binding.root.setOnClickListener {
-            onCardClicked.invoke(movie.title, movie.overview)
+            onCardClicked.invoke(movie.id, movie.title, movie.overview)
         }
     }
 }

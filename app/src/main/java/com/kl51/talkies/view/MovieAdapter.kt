@@ -7,7 +7,7 @@ import com.kl51.talkies.databinding.CardMovieBinding
 import com.kl51.talkies.model.Movie
 
 class MovieAdapter constructor(
-    private val onCardClick: (String, String) -> (Unit)
+    private val onCardClick: (Int, String, String) -> (Unit)
 ): RecyclerView.Adapter<MovieViewHolder>() {
 
     private var moviesList =  ArrayList<Movie>()

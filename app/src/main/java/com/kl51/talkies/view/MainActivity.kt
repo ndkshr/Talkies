@@ -79,8 +79,8 @@ class MainActivity : AppCompatActivity() {
         adapter.setData(results, secureBaseUrl)
     }
 
-    private fun onCardClick(title: String, description: String) {
-        MoviePreviewBottomSheet.getInstance(title, description).show(supportFragmentManager, MoviePreviewBottomSheet.TAG)
+    private fun onCardClick(id: Int, title: String, description: String) {
+        MoviePreviewBottomSheet.getInstance(id, title, description).show(supportFragmentManager, MoviePreviewBottomSheet.TAG)
     }
 
     private fun showError() {

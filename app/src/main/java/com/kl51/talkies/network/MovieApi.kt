@@ -1,14 +1,13 @@
 package com.kl51.talkies.network
 
 import com.kl51.talkies.BuildConfig
-import com.kl51.talkies.model.ConfigurationResult
-import com.kl51.talkies.model.Movie
-import com.kl51.talkies.model.UpcomingResult
+import com.kl51.talkies.model.*
 import io.reactivex.Single
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface MovieApi {
+interface  MovieApi {
 
     @GET("movie/upcoming")
     fun getUpcomingMovies(
@@ -21,4 +20,10 @@ interface MovieApi {
     fun getConfiguration(
             @Query("api_key") apiKey: String = BuildConfig.API_KEY
     ): Single<ConfigurationResult>
+
+    @GET("movie/{movie_id}")
+    fun getMovieDetails(
+        @Path("movie_id") movieId: String,
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY
+    ): Single<MovieDetailObject>
 }
