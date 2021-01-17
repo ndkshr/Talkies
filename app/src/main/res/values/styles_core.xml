@@ -15,6 +15,17 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="Theme.Talkies.Text.Title.Huge">
+        <item name="android:textSize">@dimen/font_70</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.Talkies.Text.Title.Huge.Light">
+        <item name="android:textSize">@dimen/font_70</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
     <style name="Theme.Talkies.Text.Title1">
         <item name="android:textSize">@dimen/font_20</item>
         <item name="android:textStyle">bold</item>
@@ -22,6 +33,15 @@
 
     <style name="Theme.Talkies.Text.Heading">
         <item name="android:textSize">@dimen/font_12</item>
+    </style>
+
+    <style name="Theme.Talkies.Text.Content">
+        <item name="android:textSize">@dimen/font_16</item>
+    </style>
+
+    <style name="Theme.Talkies.Text.Content.Light">
+        <item name="android:textSize">@dimen/font_16</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
     </style>
 
     <!--  Button Styles  -->

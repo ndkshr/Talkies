@@ -9,18 +9,37 @@
         <ImageView
             android:id="@+id/movie_poster"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:src="@mipmap/ic_placeholder" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.6"
+            android:background="@color/secondaryTextColor" />
 
         <TextView
             android:id="@+id/movie_title"
-            style="@style/Theme.Talkies.Text.Title"
-            android:layout_width="wrap_content"
+            style="@style/Theme.Talkies.Text.Title.Huge.Light"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="@dimen/dimen_10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="The Movie Title" />
+
+        <TextView
+            android:id="@+id/movie_description"
+            style="@style/Theme.Talkies.Text.Content.Light"
+            app:layout_constraintTop_toBottomOf="@id/movie_title"
+            android:layout_margin="@dimen/dimen_10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            tools:text="This is the movie description"
+            android:layout_height="wrap_content" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

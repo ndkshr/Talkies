@@ -1,8 +1,10 @@
 package com.kl51.talkies.view
 
+import android.animation.ValueAnimator
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -53,10 +55,24 @@ class MovieDetailsActivity : AppCompatActivity() {
 
     private fun renderMovieDetailScreen(movieObject: MovieDetailObject) {
         binding.movieTitle.text = movieObject.originalTitle
+        binding.movieDescription.text = movieObject.overview
+
+        initAnimations()
 
         GlideApp.with(this)
             .load(preferenceUtils.getSecuredBaseUrl() + POSTER_SIZE + movieObject.posterPath)
             .into(binding.moviePoster)
+    }
+
+    private fun initAnimations() {
+        val animation = AnimationUtils.loadAnimation(this, R.anim.rise_up)
+        animation.reset()
+
+        binding.movieTitle.clearAnimation()
+        binding.movieDescription.clearAnimation()
+
+        binding.movieTitle.startAnimation(animation)
+        binding.movieDescription.startAnimation(animation)
     }
 
     private fun showErrorToast() {
