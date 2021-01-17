@@ -1,11 +1,9 @@
 package com.kl51.talkies.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.kl51.talkies.R
@@ -31,8 +29,8 @@ class MoviePreviewBottomSheet : BottomSheetDialogFragment() {
         binding.movieTitle.text = arguments?.get(BUNDLE_TITLE).toString()
         binding.movieDescription.text = arguments?.get(BUNDLE_DESCRIPTION).toString()
         binding.buttonViewMovie.setOnClickListener {
+            dismiss()
             MovieDetailsActivity.start(activity, arguments?.get(BUNDLE_ID).toString())
-            Toast.makeText(activity, arguments?.get(BUNDLE_ID).toString(), Toast.LENGTH_SHORT).show()
         }
     }
 

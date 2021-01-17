@@ -6,10 +6,10 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.kl51.talkies.R
 import com.kl51.talkies.databinding.ActivityMainBinding
 import com.kl51.talkies.model.Movie
+import com.kl51.talkies.utils.PreferenceUtils
 import com.kl51.talkies.utils.ViewModelFactory
 import com.kl51.talkies.viewmodel.MainActivityViewModel
 import dagger.android.AndroidInjection
@@ -19,13 +19,14 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject
+    lateinit var preferenceUtils: PreferenceUtils
+
+    @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
     private val viewModel by lazy {
         ViewModelProvider(this, viewModelFactory).get(MainActivityViewModel::class.java)
     }
-
-    private lateinit var secureBaseUrl: String
 
     private lateinit var compositeDisposable: CompositeDisposable
 
@@ -68,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.getConfiguration()
                 .doOnSubscribe{ compositeDisposable.add(it) }
                 .doOnSuccess {
-                    secureBaseUrl = it.images.secureBaseUrl
+                    preferenceUtils.setSecuredBaseUrl(it.images.secureBaseUrl)
                     getMoviesFromRemote()
                 }
                 .doOnError { showError() }
@@ -76,7 +77,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showUpcomingMovies(results: List<Movie>) {
-        adapter.setData(results, secureBaseUrl)
+        adapter.setData(results, preferenceUtils.getSecuredBaseUrl() ?: "")
     }
 
     private fun onCardClick(id: Int, title: String, description: String) {

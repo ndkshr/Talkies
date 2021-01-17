@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.kl51.talkies.R
 import com.kl51.talkies.databinding.ActivityMovieDetailsBinding
 import com.kl51.talkies.model.MovieDetailObject
+import com.kl51.talkies.utils.GlideApp
+import com.kl51.talkies.utils.PreferenceUtils
 import com.kl51.talkies.utils.ViewModelFactory
 import com.kl51.talkies.viewmodel.MovieDetailViewModel
 import dagger.android.AndroidInjection
@@ -19,6 +21,9 @@ import javax.inject.Inject
 class MovieDetailsActivity : AppCompatActivity() {
     lateinit var binding: ActivityMovieDetailsBinding
     lateinit var movieId: String
+
+    @Inject
+    lateinit var preferenceUtils: PreferenceUtils
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -48,6 +53,10 @@ class MovieDetailsActivity : AppCompatActivity() {
 
     private fun renderMovieDetailScreen(movieObject: MovieDetailObject) {
         binding.movieTitle.text = movieObject.originalTitle
+
+        GlideApp.with(this)
+            .load(preferenceUtils.getSecuredBaseUrl() + POSTER_SIZE + movieObject.posterPath)
+            .into(binding.moviePoster)
     }
 
     private fun showErrorToast() {
@@ -56,6 +65,8 @@ class MovieDetailsActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_MOVIE_ID = "extra_movie_id"
+        private const val POSTER_SIZE = "w500"
+
         fun start(activity: Context?, movieId: String) {
             val intent = Intent(activity, MovieDetailsActivity::class.java).apply {
                 putExtra(EXTRA_MOVIE_ID, movieId)
