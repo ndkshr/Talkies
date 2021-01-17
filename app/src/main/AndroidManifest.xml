@@ -21,7 +21,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.MovieDetailsActivity" />
+        <activity
+            android:name=".view.MovieDetailsActivity"
+            android:theme="@style/Theme.Talkies.Screen.NoActionBar" />
     </application>
 
 </manifest>
